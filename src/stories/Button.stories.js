@@ -18,26 +18,34 @@ export default {
 export const Primary = {
   args: {
     primary: true,
-    label: 'Salvar',
+    label: 'Botão',
   },
 };
 
 export const Secondary = {
   args: {
-    label: 'Button',
+    label: 'Botão',
   },
 };
 
 export const Large = {
   args: {
     size: 'large',
-    label: 'Button large',
+    label: 'Botão grande',
   },
 };
 
 export const Small = {
   args: {
     size: 'small',
-    label: 'Button small',
-  },
+    label: 'Botão pequeno',
+  }
 };
+
+export const Disabled = {
+  args: {
+    label: 'Botão desabilitado',
+    disabled: true
+  }
+};
+

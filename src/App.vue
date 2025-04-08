@@ -1,15 +1,33 @@
 <template>
-  <div class="container">
-    <a href="https://sistema.rotaexata.com.br/0/0/mapa" target="_blank">
-      <img src="./assets/rotaexatalight.png" class="logo vue"/>
-    </a>
-    <h1>Storybook</h1>
-  </div>
+  <nav>
+    <RouterLink v-if="isMainPage" to="/form">
+      Mostrar formulário
+    </RouterLink>
+    <RouterLink v-if="!isMainPage" to="/">
+      Voltar
+    </RouterLink>
+  </nav>
+  <main class="main-container">
+    <router-view />
+  </main>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const isMainPage = computed(() => {
+  return route.path === '/'
+})
+
 </script>
 <style scoped>
+.main-container {
+  margin-top: 12px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

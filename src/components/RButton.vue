@@ -1,9 +1,10 @@
 <template>
   <button
-    type="button"
-    :class="classes"
-    @click="onClick"
-    :style="style">
+      type="button"
+      :class="classes"
+      :style="style"
+      @click="onClick"
+    >
     {{ label }}
   </button>
 </template>
@@ -32,6 +33,11 @@ export default {
     backgroundColor: {
       type: String,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
 
   emits: ['click'],
@@ -41,14 +47,17 @@ export default {
     return {
       classes: computed(() => ({
         'storybook-button': true,
+        'storybook-button--disabled': props.disabled,
         'storybook-button--primary': props.primary,
         'storybook-button--secondary': !props.primary,
         [`storybook-button--${props.size || 'medium'}`]: true,
       })),
       style: computed(() => ({
         backgroundColor: props.backgroundColor,
+        minWidth: 100
       })),
       onClick() {
+        if (props.disabled) return
         emit('click');
       },
     };
@@ -86,6 +95,11 @@ export default {
 .storybook-button--large {
   padding: 12px 24px;
   font-size: 16px;
+}
+
+.storybook-button--disabled {
+  background-color: #DFDFDF !important;
+  cursor: no-drop;
 }
 
 </style>
