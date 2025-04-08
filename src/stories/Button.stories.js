@@ -1,14 +1,16 @@
 import { fn } from '@storybook/test';
 
-import MyButton from './Button.vue';
+import RButton from '../components/RButton.vue';
 
 export default {
-  title: 'Example/Button',
-  component: MyButton,
+  title: 'Componentes/RButton',
+  component: RButton,
   tags: ['autodocs'],
   argTypes: {
-    size: { control: { type: 'select' }, options: ['small', 'medium', 'large'] },
-    backgroundColor: { control: 'color' },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'] },
+      backgroundColor: { control: 'color' },
   },
   args: { onClick: fn() },
 };
@@ -16,7 +18,7 @@ export default {
 export const Primary = {
   args: {
     primary: true,
-    label: 'Buttonss',
+    label: 'Salvar',
   },
 };
 
@@ -29,13 +31,13 @@ export const Secondary = {
 export const Large = {
   args: {
     size: 'large',
-    label: 'Button',
+    label: 'Button large',
   },
 };
 
 export const Small = {
   args: {
     size: 'small',
-    label: 'Button',
+    label: 'Button small',
   },
 };
