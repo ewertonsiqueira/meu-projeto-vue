@@ -1,14 +1,14 @@
 
-import TextField from '../components/RTextField.vue'
+import RTextField from '../components/RTextField.vue'
 import { ref } from 'vue'
 
 export default {
   title: 'Componentes/RTextField',
-  component: TextField,
+  component: RTextField,
 }
 
 const Template = (args) => ({
-  components: { TextField },
+  components: { RTextField },
   setup() {
     const value = ref('')
     return { args, value }
