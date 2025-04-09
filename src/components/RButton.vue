@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import { reactive, computed } from 'vue';
+import { reactive, computed, watch } from 'vue';
+
 
 export default {
   name: 'RButton',
@@ -37,13 +38,28 @@ export default {
       type: Boolean,
       required: false,
       default: false
-    }
+    },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
 
   emits: ['click'],
 
   setup(props, { emit }) {
     props = reactive(props);
+
+    watch(props.disabled, (newValue) => {
+      if (newValue) {
+        alert('Button is disabled');
+        console.log('Button is disabled');
+      } else {
+        console.log('Button is enabled');
+      }
+    });
+    
     return {
       classes: computed(() => ({
         'storybook-button': true,

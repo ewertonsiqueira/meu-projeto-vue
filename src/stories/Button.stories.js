@@ -49,3 +49,10 @@ export const Disabled = {
   }
 };
 
+export const Loading = {
+  args: {
+    label: 'Carregando...',
+    loading: true
+  }
+}
+
