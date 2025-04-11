@@ -54,10 +54,12 @@ const classes = computed(() => {
   }
 })
 
-const style = computed(() => { return { 
-  backgroundColor: props.backgroundColor,
-  minWidth: 100
-}})
+const style = computed(() => {
+  return { 
+    backgroundColor: props.backgroundColor,
+    minWidth: 100
+  }
+})
 
 function onClick() {
   if (props.disabled) return
